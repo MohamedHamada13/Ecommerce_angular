@@ -1,8 +1,17 @@
-<div class="card" style="width: 18rem;">
-  <img src="images/products/b-sunglass-sm.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Sunglass</h5>
-    <p class="card-text">A black sunglass</p>
-    <a href="#" class="btn btn-outline-primary">Buy</a>
+<section class="container-md mt-5 ps-md-5 pe-md-5 mb-5">
+  <h2 class="text-center mb-5">Products</h2>
+  <div class="row">
+    @for (product of products; track product.id) {
+      <div class="col-md d-flex justify-content-center align-items-center mb-4">
+        <div class="card" style="width: 18rem;">
+          <img src="images/products/{{product.image}}" class="card-img-top" alt="{{product.name}}">
+          <div class="card-body">
+            <h5 class="card-title">{{product.name}}</h5> <!-- Interpolation binding -->
+            <p class="card-text">${{product.price}}</p>
+            <a href="#" class="btn btn-outline-primary" [class.disabled]="!product.inStock">Buy</a> <!-- Property binding -->
+          </div>
+        </div>
+      </div>
+    }
   </div>
-</div>
+</section>
